@@ -1,6 +1,6 @@
-displayName = (req, res) => {
+displayJoke = (req, res) => {
     const data =
-      'How did the telephone propose to his girlfriend? ...he gave her a ring.';
+      'What is a dogs favorite food? ...Pawsta.';
     res.status(200).send(data);
   };
   
