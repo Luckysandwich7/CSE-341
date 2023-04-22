@@ -8,7 +8,7 @@
 //     displayQuote,
 //   };
 
-const mongodb = require('./db/connect');
+const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
