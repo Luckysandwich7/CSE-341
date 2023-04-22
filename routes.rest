@@ -1,13 +1,18 @@
-GET https://localhost:8080/contacts HTTP/1.1
-
+//LOCALHOST
+GET http://localhost:8080/contacts HTTP/1.1
 ###
-
-GET https://example.com/topics/1 HTTP/1.1
-
+GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b2 HTTP/1.1
 ###
+GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b4 HTTP/1.1
 
-POST https://example.com/comments HTTP/1.1
-content-type: application/json
+//PRODUCTION Deploy
+GET https://ryanalvordcit341.onrender.com/contacts HTTP/1.1
+###
+GET https://ryanalvordcit341.onrender.com/contacts/622023f642f9ab4cd6e060b2 HTTP/1.1
+###
+GET https://ryanalvordcit341.onrender.com/contacts/622023f642f9ab4cd6e060b3 HTTP/1.1
+### 
+GET https://ryanalvordcit341.onrender.com/contacts/622023f642f9ab4cd6e060b4 HTTP/1.1
 
 {
     "name": "sample",

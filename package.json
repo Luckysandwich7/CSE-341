@@ -4,24 +4,25 @@
     "description": "code to give to students for the cse341 course",
     "main": "server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js",
-      "dev_start": "nodemon server.js"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "dev_start": "nodemon server.js"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Luckysandwich7/CSE-341.git"
+        "type": "git",
+        "url": "git+https://github.com/Luckysandwich7/CSE-341.git"
     },
     "author": "Ryan Alvord",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/nathanbirch/cse341-apiCourse-code/issues"
+        "url": "https://github.com/nathanbirch/cse341-apiCourse-code/issues"
     },
     "homepage": "https://github.com/nathanbirch/cse341-apiCourse-code#readme",
     "dependencies": {
-      "express": "^4.17.3"
+        "express": "^4.17.3",
+        "mongodb": "^5.3.0"
     },
     "devDependencies": {
-      "nodemon": "^2.0.15"
+        "nodemon": "^2.0.15"
     }
-  }
+}
