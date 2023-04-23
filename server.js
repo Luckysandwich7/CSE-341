@@ -3,7 +3,7 @@ const app = express();
 const mongodb = require('./db/connect.js');
 const port = process.env.PORT || 3000;
 
-app.use('/', require('./routes'))
+// app.use('/', require('./router'))
 
 mongodb.initDb((err, mongodb) => {
     if (err) {
