@@ -9,8 +9,6 @@ async function start(){
   await client.connect()
   console.log("Connected")
   module.exports = client.db()
-  const app = require('./app')
-  app.listen(3000)
 }
 
   start()
