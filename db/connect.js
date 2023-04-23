@@ -1,9 +1,11 @@
 const dotenv = require('dotenv');
 dotenv.config();
+const express = require('express');
+const app = express();
 const {MongoClient} = require('mongodb')
 
 
-const client = new MongoClient('mongodb+srv://ryanalvord:Luckysandwich7@luckysandwich7.vymsung.mongodb.net/test')
+const client = new MongoClient(process.env.MONGOURI);
 
 async function start(){
   await client.connect()
@@ -20,7 +22,7 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(process.env.MONGODB_URI)
+  MongoClient.connect(process.env.MONGOURI)
     .then((client) => {
       _db = client;
       callback(null, _db);

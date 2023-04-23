@@ -1,9 +1,9 @@
 //LOCALHOST
-GET http://localhost:8080/contacts HTTP/1.1
+GET http://localhost:3000/contacts HTTP/1.1
 ###
-GET http://localhost:8080/contacts/644428dfabbe0ec032bce5d6 HTTP/1.1
+GET http://localhost:3000/contacts/644428dfabbe0ec032bce5d6 HTTP/1.1
 ###
-GET http://localhost:8080/contacts/644428ead0e2cb0519e3f6c2 HTTP/1.1
+GET http://localhost:3000/contacts/644428ead0e2cb0519e3f6c2 HTTP/1.1
 
 //PRODUCTION Deploy
 GET https://ryanalvordcit341.onrender.com/contacts HTTP/1.1
