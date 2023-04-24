@@ -1,18 +1,69 @@
 //LOCALHOST
+### Get contact list
 GET http://localhost:3000/contacts HTTP/1.1
-###
+### Get contact by Id
 GET http://localhost:3000/contacts/644428dfabbe0ec032bce5d6 HTTP/1.1
-###
-GET http://localhost:3000/contacts/644428ead0e2cb0519e3f6c2 HTTP/1.1
+### Create Contact
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Bob",
+    "lastName":"Marley",
+    "eamil":"bobMW33d@gmail.com",
+    "favoriteColor":"Green",
+    "birthday":"02/06/1945"
+    }
+
+### Update a contact
+PUT http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Bob",
+    "lastName":"Marley",
+    "eamil":"bobreggae@gmail.com",
+    "favoriteColor":"Yellow",
+    "birthday":"02/06/1945"
+}
+
+### Delete contact
+DELETE http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1
 
 //PRODUCTION Deploy
+### Acquire contacts list
 GET https://ryanalvordcit341.onrender.com/contacts HTTP/1.1
-###
+
+### Acquire a specific contact
 GET https://ryanalvordcit341.onrender.com/contacts/644428dfabbe0ec032bce5d6 HTTP/1.1
-###
-GET https://ryanalvordcit341.onrender.com/contacts/644428ead0e2cb0519e3f6c2 HTTP/1.1
-### 
-GET https://ryanalvordcit341.onrender.com/contacts/6444291bd0e2cb0519e3f6c3 HTTP/1.1
+
+### Create a Contact
+POST https://ryanalvordcit341.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Bob",
+    "lastName":"Marley",
+    "eamil":"bobMW33d@gmail.com",
+    "favoriteColor":"Green",
+    "birthday":"02/06/1945"
+}
+
+### Update a contact
+PUT https://ryanalvordcit341.onrender.com/contacts/6444291bd0e2cb0519e3f6c3 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Bob",
+    "lastName":"Marley",
+    "eamil":"bobreggae@gmail.com",
+    "favoriteColor":"Yellow",
+    "birthday":"02/06/1945"
+}
+
+### Delete a contact by Id
+DELETE https://ryanalvordcit341.onrender.com/contacts/6444291bd0e2cb0519e3f6c3 HTTP/1.1
+
 
 {
     "name": "sample",
