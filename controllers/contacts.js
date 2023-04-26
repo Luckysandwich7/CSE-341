@@ -52,17 +52,19 @@ const updateContact = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const contact = {
+    $set:{
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     favoriteColor: req.body.favoriteColor,
     birthday: req.body.birthday
+    }
   };
   const response = await mongodb
     .getDb()
     .db()
     .collection('contacts')
-    .replaceOne({ _id: userId }, contact);
+    .updateOne({ _id: userId }, contact);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
