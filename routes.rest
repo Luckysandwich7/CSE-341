@@ -3,9 +3,10 @@
 GET http://localhost:3000/contacts HTTP/1.1
 ### Get contact by Id
 GET http://localhost:3000/contacts/644428dfabbe0ec032bce5d6 HTTP/1.1
+
 ### Create Contact
 POST http://localhost:3000/contacts HTTP/1.1
-content-type: application/json
+Content-Type: application/json
 
 {
     "firstName":"Bob",
@@ -28,7 +29,7 @@ content-type: application/json
 }
 
 ### Delete contact
-DELETE http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1
+DELETE http://localhost:3000/contacts/64489bb8a74d60d8dd56e7f5 HTTP/1.1
 
 //PRODUCTION Deploy
 ### Acquire contacts list

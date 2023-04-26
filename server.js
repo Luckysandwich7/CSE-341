@@ -3,6 +3,10 @@ const app = express();
 const mongodb = require('./db/connect.js');
 const port = process.env.PORT || 3000;
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+
 app.use('/', require('./routes'))
 
 mongodb.initDb((err) => {
