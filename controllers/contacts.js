@@ -3,7 +3,7 @@
 //       "Back to school. Back to school, to prove to Dad that I'm not a fool. I got my lunch packed up, my boots tied tight, I hope I don't get in a fight. Ohhhh, back to school. Back to school. Back to school. Well, here goes nothing.";
 //     res.status(200).send(data);
 //   };
-  
+
 //   module.exports = {
 //     displayQuote,
 //   };
@@ -24,13 +24,9 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  try {  
+  try {
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb
-      .getDb()
-      .db('cse341')
-      .collection('contacts')
-      .find({ _id: userId });
+    const result = await mongodb.getDb().db('cse341').collection('contacts').find({ _id: userId });
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
@@ -63,16 +59,16 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
-  try {  
+  try {
     const userId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const contact = {
-      $set:{
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday 
+      $set: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
       }
     };
     const response = await mongodb
@@ -92,9 +88,13 @@ const updateContact = async (req, res) => {
 };
 
 const deleteContact = async (req, res) => {
-  try {  
+  try {
     const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('contacts')
+      .remove({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(204).send();
