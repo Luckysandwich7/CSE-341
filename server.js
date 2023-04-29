@@ -9,7 +9,7 @@ app.use('/', bodyParser.json());
 
 app.use((req, res, next) => {
   // Who has access to the database via URL
-  res.setHeader('Access-Control-Allow=Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   // What control they have over
   res.setHeader(
     'Access-Control-Allow-Headers',
