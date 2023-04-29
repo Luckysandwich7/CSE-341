@@ -5,7 +5,7 @@
     "description": "Temple API",
     "version": "1.0.0"
   },
-  "host": "ryanalvordcit341.onrender.com",
+  "host": "ryanalvordcit341.onrender.com/contacts",
   "basePath": "/",
   "schemes": ["https"],
   "paths": {
