@@ -1,10 +1,7 @@
 const express = require('express');
-const routes = express.Router();
-// const quotes = require('../controllers/');
+const router = express.Router();
 
-routes.use('/', require('./swagger'));
+router.use('/', require('./swagger'));
+router.use('/contacts', require('./contacts'));
 
-routes.use('/contacts', require('./contacts'));
-// routes.get('/', quotes.displayQuote);
-
-module.exports = routes;
+module.exports = router;
