@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use('/', require('./routes'))
   .use((req, res, next) => {
   // Who has access to the database via URL
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://cse341-contacts-frontend.netlify.app/');
   // What control they have over
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Z-Key');
   res.setHeader('Content-Type', 'application/json');
