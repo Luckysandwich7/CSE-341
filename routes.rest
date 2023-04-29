@@ -29,7 +29,7 @@ content-type: application/json
 }
 
 ### Delete contact
-DELETE http://localhost:3000/contacts/64489bb8a74d60d8dd56e7f5 HTTP/1.1
+DELETE http://localhost:3000/contacts/6448a5607dbe7c620ded3f03 HTTP/1.1
 
 //PRODUCTION Deploy
 ### Acquire contacts list

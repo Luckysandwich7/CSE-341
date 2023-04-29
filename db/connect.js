@@ -1,19 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config();
-// const express = require('express');
-// const app = express();
 const MongoClient = require('mongodb').MongoClient;
-
-
-// const client = new MongoClient(process.env.MONGOURI);
-
-// async function start(){
-//   await client.connect()
-//   console.log("Connected")
-//   module.exports = client.db()
-// }
-
-//   start()
 
 let _db;
 
@@ -41,5 +28,5 @@ const getDb = () => {
 
 module.exports = {
   initDb,
-  getDb,
+  getDb
 };
