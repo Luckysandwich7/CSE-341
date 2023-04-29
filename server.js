@@ -3,6 +3,7 @@ const app = express();
 var bodyParser = require('body-parser');
 const mongodb = require('./db/connect.js');
 const port = process.env.PORT || 3000;
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 app
   .use((req, res, next) => {
@@ -13,10 +14,12 @@ app
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
-  })  
+  }) 
   .use('/', require('./routes'))  
   .use('/', bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }));
+
+app.UseCors(MyAllowSpecificOrigins);
 
 mongodb.initDb((err) => {
   if (err) {
