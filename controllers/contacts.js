@@ -24,6 +24,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+  //#swagger.tags=['Contacts']
   try {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db('cse341').collection('contacts').find({ _id: userId });
