@@ -59,7 +59,7 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
-  try {
+  // try {
     const userId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const contact = {
@@ -82,9 +82,9 @@ const updateContact = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the contact.');
     }
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 };
 
 const deleteContact = async (req, res) => {
