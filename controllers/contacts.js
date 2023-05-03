@@ -47,7 +47,7 @@ const createContact = async (req, res) => {
     };
     console.log(req.body);
 
-    const response = await mongodb.getDb().db().collection('contacts').insertOne(contact);
+    const response = await mongodb.getDb().db('cse341').collection('contacts').insertOne(contact);
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
