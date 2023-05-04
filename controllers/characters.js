@@ -18,7 +18,7 @@ const getSingle = async (req, res) => {
   //#swagger.tags=['Contacts']
   try {
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db('cse341').collection().find({ _id: userId });
+    const result = await mongodb.getDb().db('cse341').collection('star_wars_characters').find({ _id: userId });
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
@@ -39,7 +39,7 @@ const createContact = async (req, res) => {
     };
     console.log(req.body);
 
-    const response = await mongodb.getDb().db('cse341').collection().insertOne(contact);
+    const response = await mongodb.getDb().db('cse341').collection('star_wars_characters').insertOne(contact);
     if (response.acknowledged) {
       res.status(201).json(response);
     } else {
@@ -66,7 +66,7 @@ const updateContact = async (req, res) => {
     const response = await mongodb
       .getDb()
       .db('cse341')
-      .collection()
+      .collection('star_wars_characters')
       .updateOne({ _id: userId }, contact);
     console.log(response);
     if (response.modifiedCount > 0) {
@@ -85,7 +85,7 @@ const deleteContact = async (req, res) => {
     const response = await mongodb
       .getDb()
       .db('cse341')
-      .collection()
+      .collection('star_wars_characters')
       .remove({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
