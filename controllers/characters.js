@@ -18,6 +18,7 @@ const getSingle = async (req, res) => {
   //#swagger.tags=['Contacts']
   try {
     const userId = new ObjectId(req.params.id);
+    console.log(userId);
     const result = await mongodb.getDb().db('cse341').collection('star_wars_characters').find({ _id: userId });
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -33,9 +34,10 @@ const createContact = async (req, res) => {
     const contact = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday
+      gender: req.body.gender,
+      race: req.body.race,
+      vehicle: req.body.vehicle,
+      affiliation: req.body.affiliation
     };
     console.log(req.body);
 
@@ -58,9 +60,10 @@ const updateContact = async (req, res) => {
       $set: {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday
+        gender: req.body.gender,
+        race: req.body.race,
+        vehicle: req.body.vehicle,
+        affiliation: req.body.affiliation
       }
     };
     const response = await mongodb

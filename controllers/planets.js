@@ -31,11 +31,12 @@ const getSingle = async (req, res) => {
 const createContact = async (req, res) => {
   try {
     const contact = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      favoriteColor: req.body.favoriteColor,
-      birthday: req.body.birthday
+      planetName: req.body.planetName,
+      region: req.body.region,
+      sector: req.body.sector,
+      suns: req.body.suns,
+      moons: req.body.moons,
+      terrain: req.body.terrain
     };
     console.log(req.body);
 
@@ -56,11 +57,12 @@ const updateContact = async (req, res) => {
     // be aware of updateOne if you only want to update specific fields
     const contact = {
       $set: {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday
+        planetName: req.body.planetName,
+        region: req.body.region,
+        sector: req.body.sector,
+        suns: req.body.suns,
+        moons: req.body.moons,
+        terrain: req.body.terrain
       }
     };
     const response = await mongodb

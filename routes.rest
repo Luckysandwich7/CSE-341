@@ -1,35 +1,72 @@
-//LOCALHOST
-### Get contact list
-GET http://localhost:3000/contacts HTTP/1.1
-### Get contact by Id
-GET http://localhost:3000/contacts/644428dfabbe0ec032bce5d6 HTTP/1.1
+//LOCALHOST CHaracters Collection
+### Get Character list
+GET http://localhost:3000/characters HTTP/1.1
+### Get Character by Id
+GET http://localhost:3000/characters/6452e0c8e12b6022b2bdcf54 HTTP/1.1
 
-### Create Contact
-POST http://localhost:3000/contacts HTTP/1.1
+### Create Character
+POST http://localhost:3000/characters HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"Bob",
-    "lastName":"Marley",
-    "email":"bobMW33d@gmail.com",
-    "favoriteColor":"Green",
-    "birthday":"02/06/1945"
+    "firstName":"Darth",
+    "lastName":"Vader",
+    "gender":"Male",
+    "race":"Human",
+    "vehicle":"Advanced TIE Fighter",
+    "affiliation":"Sith"
 }
 
-### Update a contact
-PUT http://localhost:3000/contacts/644428ead0e2cb0519e3f6c2 HTTP/1.1
+### Update a Character
+PUT http://localhost:3000/characters/645333785cb09e305b571c5c HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Jimmy",
-    "lastName":"Carter",
-    "email":"JimmyCarter@gmail.com",
-    "favoriteColor":"Purple",
-    "birthday":"12/07/2010"
+    "firstName":"Darth",
+    "lastName":"Vader",
+    "gender":"Male",
+    "race":"Human",
+    "vehicle":"Advanced TIE Fighter",
+    "affiliation":"Empire"
 }
 
-### Delete contact
-DELETE http://localhost:3000/contacts/6448a5607dbe7c620ded3f03 HTTP/1.1
+### Delete Character
+DELETE http://localhost:3000/characters/645333785cb09e305b571c5c HTTP/1.1
+
+//LOCALHOST Planets Collection
+### Get Planet list
+GET http://localhost:3000/planets HTTP/1.1
+### Get Planet by Id
+GET http://localhost:3000/planets/6452e25ee12b6022b2bdcf59 HTTP/1.1
+
+### Create Planet
+POST http://localhost:3000/planets HTTP/1.1
+Content-Type: application/json
+
+{
+    "planetName":"Lothal",
+    "region":"Outer Rim",
+    "sector":"Lothal Sector",
+    "suns":"1",
+    "moons":"2",
+    "terrain":"Prairies"
+}
+
+### Update a Planet
+PUT http://localhost:3000/planets/645333c05cb09e305b571c5d HTTP/1.1
+content-type: application/json
+
+{
+    "planetName":"Lothal",
+    "region":"Outer Rim",
+    "sector":"Lothal Sector",
+    "suns":"1",
+    "moons":"2",
+    "terrain":"Mountains"
+}
+
+### Delete Planet
+DELETE http://localhost:3000/planets/645333c05cb09e305b571c5d HTTP/1.1
 
 //PRODUCTION Deploy
 ### Acquire contacts list

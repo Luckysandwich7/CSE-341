@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 
-const charactersController = require('../controllers/contacts');
+const charactersController = require('../controllers/characters');
 
 routes.get('/', charactersController.getAll);
 
