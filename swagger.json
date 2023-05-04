@@ -2,12 +2,14 @@
   "swagger": "2.0",
   "info": {
     "title": "My API",
-    "description": "Temple API",
+    "description": "Star Wars API",
     "version": "1.0.0"
   },
-  "host": "ryanalvordcit341.onrender.com/contacts",
+  "host": "ryanalvordcit341.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/api-docs": {
       "get": {
@@ -16,10 +18,12 @@
         "responses": {}
       }
     },
-    "/contacts/": {
+    "/characters/": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -45,13 +49,16 @@
                 "lastName": {
                   "example": "any"
                 },
-                "email": {
+                "gender": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "race": {
                   "example": "any"
                 },
-                "birthday": {
+                "vehicle": {
+                  "example": "any"
+                },
+                "affiliation": {
                   "example": "any"
                 }
               }
@@ -68,10 +75,15 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/characters/{id}": {
       "get": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -110,13 +122,165 @@
                 "lastName": {
                   "example": "any"
                 },
-                "email": {
+                "gender": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "race": {
                   "example": "any"
                 },
-                "birthday": {
+                "vehicle": {
+                  "example": "any"
+                },
+                "affiliation": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/planets/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "planetName": {
+                  "example": "any"
+                },
+                "region": {
+                  "example": "any"
+                },
+                "sector": {
+                  "example": "any"
+                },
+                "suns": {
+                  "example": "any"
+                },
+                "moons": {
+                  "example": "any"
+                },
+                "terrain": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/planets/{id}": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "planetName": {
+                  "example": "any"
+                },
+                "region": {
+                  "example": "any"
+                },
+                "sector": {
+                  "example": "any"
+                },
+                "suns": {
+                  "example": "any"
+                },
+                "moons": {
+                  "example": "any"
+                },
+                "terrain": {
                   "example": "any"
                 }
               }
