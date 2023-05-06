@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const mongodb = require('./db/connect.js');
 const port = process.env.PORT || 3000;
 
@@ -17,6 +17,10 @@ app
     next();
   }) 
   .use('/', require('./routes'));
+
+  process.on('uncaughtException', (err, origin) => {
+    console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+  });
 
 mongodb.initDb((err) => {
   if (err) {

@@ -1,35 +1,37 @@
 
 const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
+const Joi = require('joi');
+const schema = Joi.object({ 
+  planetName: Joi.string().required().empty(), 
+  region: Joi.string().required().empty(),
+  sector: Joi.string().required().empty(),
+  suns: Joi.number().required().empty(), 
+  moons: Joi.number().required().empty(), 
+  terrain: Joi.string().required().empty()
+ });
 
 const getAll = async (req, res) => {
-  try {
     const result = await mongodb.getDb().db('cse341').collection('star_wars_planets').find();
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists);
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
+  };
 
 const getSingle = async (req, res) => {
-  //#swagger.tags=['Contacts']
-  try {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid planet id to find planet') }
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db('cse341').collection('star_wars_planets').find({ _id: userId });
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).json(lists[0]);
     });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
+  };
 
 const createContact = async (req, res) => {
-  try {
+  try { const { error } = schema.validate(req.body); if (error) { return res.status(400).json({ error: error.details[0].message }); }
     const contact = {
       planetName: req.body.planetName,
       region: req.body.region,
@@ -46,15 +48,13 @@ const createContact = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the contact.');
     }
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  } catch (err) { res.status(500).json({ message: err.message }); }
 };
 
 const updateContact = async (req, res) => {
-  // try {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid planet id to find planet') }
     const userId = new ObjectId(req.params.id);
-    // be aware of updateOne if you only want to update specific fields
     const contact = {
       $set: {
         planetName: req.body.planetName,
@@ -76,13 +76,11 @@ const updateContact = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the contact.');
     }
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
 };
 
 const deleteContact = async (req, res) => {
-  try {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid planet id to find planet') }
     const userId = new ObjectId(req.params.id);
     const response = await mongodb
       .getDb()
@@ -91,13 +89,10 @@ const deleteContact = async (req, res) => {
       .remove({ _id: userId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
-      res.status(204).send();
+      res.status(200).send();
     } else {
       res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
     }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
+  };
 
 module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };

@@ -66,7 +66,7 @@ content-type: application/json
 }
 
 ### Delete Planet
-DELETE http://localhost:3000/planets/645333c05cb09e305b571c5d HTTP/1.1
+DELETE http://localhost:3000/planets/6455bddf8a1a279f08700b20 HTTP/1.1
 
 //PRODUCTION Deploy
 ### Get Character list
