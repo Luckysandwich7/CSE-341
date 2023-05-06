@@ -136,7 +136,7 @@ content-type: application/json
 }
 
 ### Delete Planet
-DELETE https://ryanalvordcit341.onrender.com/planets/645333c05cb09e305b571c5d HTTP/1.1
+DELETE https://ryanalvordcit341.onrender.com/planets/6455c05067c4ce408fe6e571 HTTP/1.1
 
 
 {

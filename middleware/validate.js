@@ -27,9 +27,9 @@ const saveCharacter = (req, res, next) => {
       firstName: 'required|string',
       lastName: 'required|string',
       gender: 'required|string',
-      race: 'required|number',
-      vehicle: 'required|number',
-      affiliation: 'string'
+      race: 'required|string',
+      vehicle: 'required|string',
+      affiliation: 'required|string'
     };
     validator(req.body, validationRule, {}, (err, status) => {
       if (!status) {
