@@ -16,7 +16,7 @@ app
     resave: false,
     saveUninitialized: true,
   }))
-  // THis is the basic expres session({..}) initialization.
+  // This is the basic expres session({..}) initialization.
   .use(passport.initialize())
   // init pasport on every route call
   .use(passport.session())
