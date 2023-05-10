@@ -5,8 +5,8 @@ const doc = {
     title: 'My API',
     description: 'Star Wars API'
   },
-  host: 'ryanalvordcit341.onrender.com',
-  schemes: ['https']
+  host: 'localhost:3000',
+  schemes: ['http']
 };
 
 const outputFile = './swagger.json';
