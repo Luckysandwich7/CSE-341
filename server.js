@@ -29,12 +29,12 @@ app
       );
     res.setHeader(
       "Access-Control-Allow-Methods",
-      "POST, GET, PUT, PATCH< OPTIONS, DELETE"
+      "POST, GET, PUT, PATCH, OPTIONS, DELETE"
     );
     next();
   })
   .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}))
-  .use(cors({ orgin: '*'}))
+  .use(cors({ origin: '*'}))
   .use("/", require("./routes/index.js"));
 
   passport.use(new GitHubStrategy({
@@ -61,7 +61,7 @@ app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in
 app.get('/github/callback', passport.authenticate('github', {
   failureRedirect: '/api-docs', session: false}),
   (req, res) => {
-    req.session.user - req.user;
+    req.session.user = req.user;
     res.redirect('/');
   });
 
